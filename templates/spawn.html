@@ -1,5 +1,7 @@
-{% extends "page.html" %}
-{% block main %}
+{% extends "spawn.html" %}
+
+{% block head %}
+  {{ super() }}
   <style>
     .profile[data-profile-slug="python"] h3::before {
       content: "";
@@ -46,5 +48,4 @@
       vertical-align: middle;
     }
   </style>
-  {{ super() }}
 {% endblock %}
