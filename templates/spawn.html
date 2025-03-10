@@ -1,82 +1,50 @@
 {% extends "page.html" %}
-
 {% block main %}
-
-  
-    Server Options
-  
-  
-    
-      {{form | safe}}
-      
-      
-        
-        
-          
-        
-      
-    
-  
-
-
-
-/* Add language icons directly in the template */
-#kubespawner-profiles-list label[for="profile-item-python"] h3::before {
-  content: "";
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-  background-image: url('{{ static_url("extra-assets/images/python-logo.svg") }}');
-  background-size: contain;
-  background-repeat: no-repeat;
-  vertical-align: middle;
-}
-
-#kubespawner-profiles-list label[for="profile-item-julia"] h3::before {
-  content: "";
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-  background-image: url('{{ static_url("extra-assets/images/julia-logo.svg") }}');
-  background-size: contain;
-  background-repeat: no-repeat;
-  vertical-align: middle;
-}
-
-#kubespawner-profiles-list label[for="profile-item-r"] h3::before {
-  content: "";
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-  background-image: url('{{ static_url("extra-assets/images/r-logo.svg") }}');
-  background-size: contain;
-  background-repeat: no-repeat;
-  vertical-align: middle;
-}
-
-#kubespawner-profiles-list label[for="profile-item-cpp"] h3::before {
-  content: "";
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-  background-image: url('{{ static_url("extra-assets/images/cpp-logo.svg") }}');
-  background-size: contain;
-  background-repeat: no-repeat;
-  vertical-align: middle;
-}
-
-
-
-// setup onSubmit feedback
-$('form').submit((e) => {
-  var form = $(e.target);
-  form.find('.feedback-container>input').attr('disabled', true);
-  form.find('.feedback-container>*').toggleClass('hidden');
-  form.find('.feedback-widget>*').toggleClass('fa-pulse');
-});
-
+  <style>
+    .profile[data-profile-slug="python"] h3::before {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      background-image: url('{{ static_url("extra-assets/python-logo.svg") }}');
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+    }
+    .profile[data-profile-slug="julia"] h3::before {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      background-image: url('{{ static_url("extra-assets/julia-logo.svg") }}');
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+    }
+    .profile[data-profile-slug="r"] h3::before {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      background-image: url('{{ static_url("extra-assets/r-logo.svg") }}');
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+    }
+    .profile[data-profile-slug="cpp"] h3::before {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      background-image: url('{{ static_url("extra-assets/cpp-logo.svg") }}');
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+    }
+  </style>
+  {{ super() }}
 {% endblock %}
