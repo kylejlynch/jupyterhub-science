@@ -3,6 +3,8 @@
 {% block head %}
   {{ super() }}
   <link rel="stylesheet" href="{{ static_url('extra-assets/css/custom.css') }}" type="text/css"/>
+  <!-- Debug: Confirm template loading -->
+  <meta name="custom-template" content="true">
 {% endblock %}
 
 {% block main %}
