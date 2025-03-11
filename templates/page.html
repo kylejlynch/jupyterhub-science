@@ -1,0 +1,7 @@
+{% extends "templates/page.html" %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ static_url('extra-assets/css/custom.css') }}" type="text/css"/>
+  <meta name="custom-template" content="true"> <!-- Debug tag -->
+{% endblock %}
