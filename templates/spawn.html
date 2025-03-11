@@ -74,7 +74,147 @@
           method="post"
           role="form"
         >
-          {{ spawner_options_form | safe }}
+          <style>/*
+    .profile divs holds two div tags: one for a radio button, and one
+    for the profile's content.
+*/
+#kubespawner-profiles-list .profile {
+  display: flex;
+  flex-direction: row;
+  font-weight: normal;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 12px;
+}
+
+#kubespawner-profiles-list .profile .radio {
+  padding: 12px;
+}
+
+/* .option divs holds a label and a select tag */
+#kubespawner-profiles-list .profile .option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 12px;
+}
+
+#kubespawner-profiles-list .profile .option label {
+  font-weight: normal;
+  margin-right: 8px;
+  min-width: 96px;
+}</style>
+<div class="form-group" id="kubespawner-profiles-list">
+    <label for="profile-item-python"
+           class="profile js-profile-label"
+           data-profile-slug="python">
+      <div class="radio">
+        <input type="radio"
+               name="profile"
+               id="profile-item-python"
+               value="python"
+                />
+      </div>
+      <div>
+        <h3>Python</h3><p>Python-based scientific computing environments</p>
+          <div>
+              <div class="option">
+                <label for="profile-option-python-environment"
+                       class="js-profile-option-label">Environment</label>
+                <select name="profile-option-python-environment"
+                        class="form-control js-profile-option-select">
+                    <option value="bioinformatics" >Bioinformatics Environment</option>
+                    <option value="default" selected>Default Scientific Environment</option>
+                    <option value="drugdiscovery" >Drug Discovery Environment</option>
+                    <option value="materials" >Materials Science Environment</option>
+                    <option value="physics" >Physics Simulation Environment</option>
+                </select>
+              </div>
+          </div>
+      </div>
+    </label>
+    <label for="profile-item-julia"
+           class="profile js-profile-label"
+           data-profile-slug="julia">
+      <div class="radio">
+        <input type="radio"
+               name="profile"
+               id="profile-item-julia"
+               value="julia"
+                />
+      </div>
+      <div>
+        <h3>Julia</h3><p>Julia-based scientific computing environments</p>
+          <div>
+              <div class="option">
+                <label for="profile-option-julia-environment"
+                       class="js-profile-option-label">Environment</label>
+                <select name="profile-option-julia-environment"
+                        class="form-control js-profile-option-select">
+                    <option value="extended" >Scientific Computing with Domain Packages</option>
+                    <option value="general" selected>General Scientific Computing</option>
+                </select>
+              </div>
+          </div>
+      </div>
+    </label>
+    <label for="profile-item-r"
+           class="profile js-profile-label"
+           data-profile-slug="r">
+      <div class="radio">
+        <input type="radio"
+               name="profile"
+               id="profile-item-r"
+               value="r"
+                />
+      </div>
+      <div>
+        <h3>R</h3><p>R-based statistical and data analysis environments</p>
+          <div>
+              <div class="option">
+                <label for="profile-option-r-environment"
+                       class="js-profile-option-label">Environment</label>
+                <select name="profile-option-r-environment"
+                        class="form-control js-profile-option-select">
+                    <option value="bioinformatics" >Bioinformatics Environment</option>
+                    <option value="stats" selected>Statistical Analysis Environment</option>
+                </select>
+              </div>
+          </div>
+      </div>
+    </label>
+    <label for="profile-item-cpp"
+           class="profile js-profile-label"
+           data-profile-slug="cpp">
+      <div class="radio">
+        <input type="radio"
+               name="profile"
+               id="profile-item-cpp"
+               value="cpp"
+                />
+      </div>
+      <div>
+        <h3>C++</h3><p>C++ development environment with Jupyter support</p>
+          <div>
+              <div class="option">
+                <label for="profile-option-cpp-environment"
+                       class="js-profile-option-label">Environment</label>
+                <select name="profile-option-cpp-environment"
+                        class="form-control js-profile-option-select">
+                    <option value="hpc" selected>High-Performance Computing Environment</option>
+                </select>
+              </div>
+          </div>
+      </div>
+    </label>
+</div>
+<script>
+  $('.js-profile-option-select, .js-profile-option-label').click(function() {
+    // we need this bit of JS to select the profile when a <select> inside is clicked.
+    $(this).parents('.js-profile-label')
+      .find('input[type=radio]')
+      .prop('checked', true);
+  });
+</script>
           <br>
           <div class="feedback-container">
             <button type="submit" class="btn btn-jupyter form-control">Start</button>
