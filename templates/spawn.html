@@ -1,14 +1,16 @@
 {% extends "templates/spawn.html" %}
 
-{% block head %}
-  {{ super() }}
-  <link rel="stylesheet" href="{{ static_url('extra-assets/css/custom.css') }}" type="text/css"/>
-  <meta name="custom-template" content="true"> <!-- Debug tag -->
-{% endblock %}
-
 {% block script %}
   {{ super() }}
   <script>
+    // Dynamically add the CSS link
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = '{{ static_url("extra-assets/css/custom.css") }}';
+    document.head.appendChild(link);
+
+    // Set data-profile-slug attributes
     document.querySelectorAll('#kubespawner-profiles-list .profile').forEach((el, idx) => {
       const slugs = ['python', 'julia', 'r', 'cpp'];
       el.setAttribute('data-profile-slug', slugs[idx]);
