@@ -1,1 +1,44 @@
-
+.profile[data-profile-slug="python"] h3::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  background-image: url('/hub/static/extra-assets/images/python-logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+.profile[data-profile-slug="julia"] h3::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  background-image: url('/hub/static/extra-assets/images/julia-logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+.profile[data-profile-slug="r"] h3::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  background-image: url('/hub/static/extra-assets/images/r-logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+.profile[data-profile-slug="cpp"] h3::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  background-image: url('/hub/static/extra-assets/images/cpp-logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
