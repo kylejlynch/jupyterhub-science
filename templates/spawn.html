@@ -5,3 +5,13 @@
   <link rel="stylesheet" href="{{ static_url('extra-assets/css/custom.css') }}" type="text/css"/>
   <meta name="custom-template" content="true"> <!-- Debug tag -->
 {% endblock %}
+
+{% block script %}
+  {{ super() }}
+  <script>
+    document.querySelectorAll('#kubespawner-profiles-list .profile').forEach((el, idx) => {
+      const slugs = ['python', 'julia', 'r', 'cpp'];
+      el.setAttribute('data-profile-slug', slugs[idx]);
+    });
+  </script>
+{% endblock %}
