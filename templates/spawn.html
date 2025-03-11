@@ -1,48 +1,8 @@
-{% extends "page.html" %}
+{% extends "templates/spawn.html" %}
 
 {% block head %}
   {{ super() }}
   <link rel="stylesheet" href="{{ static_url('extra-assets/css/custom.css') }}" type="text/css"/>
   <!-- Debug: Confirm template loading -->
   <meta name="custom-template" content="true">
-{% endblock %}
-
-{% block main %}
-<div class="container">
-  <div class="row text-center">
-    <h1>Server Options</h1>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      {% if for_user and user.name != for_user.name %}
-        <p>Spawning server for {{ for_user.name }}</p>
-      {% endif %}
-      {% if error_message %}
-        <p class="spawn-error-msg alert alert-danger">Error: {{ error_message }}</p>
-      {% endif %}
-      <form id="spawn_form" action="{{ url | safe }}" method="post" role="form">
-        {{ spawner_options_form | safe }}
-        <br>
-        <div class="feedback-container">
-          <button type="submit" class="btn btn-jupyter form-control">Start</button>
-          <div class="feedback widget hidden">
-            <i class="fa fa-spinner"></i>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-{% endblock %}
-
-{% block script %}
-  {{ super() }}
-  <script>
-    $('form').submit((e) => {
-      var form = $(e.target);
-      form.find('.feedback-container>input').attr('disabled', true);
-      form.find('.feedback-container>*').toggleClass('hidden');
-      form.find('.feedback widget>*').toggleClass('fa-pulse');
-    });
-  </script>
 {% endblock %}
