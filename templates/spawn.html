@@ -3,19 +3,12 @@
 {% block script %}
   {{ super() }}
   <script>
-    // Add custom.css
+    // Add custom.css for spawn page logos
     var customLink = document.createElement('link');
     customLink.rel = 'stylesheet';
     customLink.type = 'text/css';
     customLink.href = '{{ static_url("extra-assets/css/custom.css") }}';
     document.head.appendChild(customLink);
-  
-    // Add dark-mode.css
-    var darkModeLink = document.createElement('link');
-    darkModeLink.rel = 'stylesheet';
-    darkModeLink.type = 'text/css';
-    darkModeLink.href = '{{ static_url("extra-assets/css/dark-mode.css") }}';
-    document.head.appendChild(darkModeLink);
   
     // Set data-profile-slug attributes
     document.querySelectorAll('#kubespawner-profiles-list .profile').forEach((el, idx) => {
