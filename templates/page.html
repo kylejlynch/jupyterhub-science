@@ -1,14 +1,15 @@
 {% extends "templates/page.html" %}
 
-{% block head %}
-  {{ super() }}
-  <!-- Include Font Awesome for sun/moon icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-{% endblock %}
-
 {% block script %}
   {{ super() }}
   <script>
+    // Dynamically load Font Awesome for sun/moon icons
+    var faLink = document.createElement('link');
+    faLink.rel = 'stylesheet';
+    faLink.type = 'text/css';
+    faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css';
+    document.head.appendChild(faLink);
+
     // Dynamically load dark-mode.css
     var darkModeLink = document.createElement('link');
     darkModeLink.rel = 'stylesheet';
