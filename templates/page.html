@@ -1,28 +1,19 @@
 {% extends "templates/page.html" %}
 
-{% block head %}
-  {{ super() }}
-  <link rel="stylesheet" href="{{ static_url('extra-assets/css/custom.css') }}" type="text/css"/>
-  <meta name="custom-template" content="true"> <!-- Optional debug tag -->
-{% endblock %}
-
 {% block script %}
   {{ super() }}
   <script>
-    // Dynamically load dark-mode.css
     var darkModeLink = document.createElement('link');
     darkModeLink.rel = 'stylesheet';
     darkModeLink.type = 'text/css';
     darkModeLink.href = '{{ static_url("extra-assets/css/dark-mode.css") }}';
     document.head.appendChild(darkModeLink);
 
-    // Dark mode toggle function
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
       localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
     }
 
-    // Apply dark mode preference from local storage
     if (localStorage.getItem('darkMode') === 'true') {
       document.body.classList.add('dark-mode');
     }
