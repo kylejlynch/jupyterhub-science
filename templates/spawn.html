@@ -3,13 +3,20 @@
 {% block script %}
   {{ super() }}
   <script>
-    // Dynamically add the CSS link
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    link.href = '{{ static_url("extra-assets/css/custom.css") }}';
-    document.head.appendChild(link);
-
+    // Add custom.css
+    var customLink = document.createElement('link');
+    customLink.rel = 'stylesheet';
+    customLink.type = 'text/css';
+    customLink.href = '{{ static_url("extra-assets/css/custom.css") }}';
+    document.head.appendChild(customLink);
+  
+    // Add dark-mode.css
+    var darkModeLink = document.createElement('link');
+    darkModeLink.rel = 'stylesheet';
+    darkModeLink.type = 'text/css';
+    darkModeLink.href = '{{ static_url("extra-assets/css/dark-mode.css") }}';
+    document.head.appendChild(darkModeLink);
+  
     // Set data-profile-slug attributes
     document.querySelectorAll('#kubespawner-profiles-list .profile').forEach((el, idx) => {
       const slugs = ['python', 'julia', 'r', 'cpp'];
